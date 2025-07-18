@@ -73,7 +73,7 @@ const home = () => {
               From seamless system integrations to standout user experiences,
               our services are crafted to solve real problems and spark lasting
               impact. At Genufy TechWorks, we don’t just build we innovate,
-              optimize, and future-proof your digital journey. Whether you're
+              optimize, and future proof your digital journey. Whether you're
               optimizing workflows or launching the next big idea, we deliver
               with precision and passion.
             </div>
