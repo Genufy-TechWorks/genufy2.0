@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import salesforceImg from "../assets/img/Salesforce.png";
+import salesforceImg from "../assets/img/salesforce.png";
 import mobileappImg from "../assets/img/mobile_app.webp";
 import webdevelopImg from "../assets/img/web_development.png";
 import informaticaImg from "../assets/img/informatica.png";
