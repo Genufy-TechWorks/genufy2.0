@@ -66,4 +66,4 @@ The application can be deployed to any static hosting service like:
 - Netlify
 - GitHub Pages
 
-For more information about Genufy TechWorks, visit [our website](https://genufy.tech).
+For more information about Genufy TechWorks, visit [our website](https://genufy.in).
