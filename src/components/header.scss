@@ -1,0 +1,14 @@
+.genufy {
+  &-logo {
+    width: 200px;
+  }
+}
+.nav {
+  &-item {
+    color: #0d0c41;
+  }
+}
+.nav-item a.active {
+  color: #2ebfa5;
+  border-bottom: 2px solid #2ebfa5;
+}
