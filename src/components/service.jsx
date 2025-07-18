@@ -2,7 +2,7 @@ import topo from "../assets/img/topo-left.svg";
 import topoRight from "../assets/img/topo-right.svg";
 import bgline from "../assets/img/common-underline.svg";
 import sicon from "../assets/img/service_icon.svg";
-import salesforceImg from "../assets/img/Salesforce.png";
+import salesforceImg from "../assets/img/salesforce.png";
 import mobileappImg from "../assets/img/mobile_app.webp";
 import webdevelopImg from "../assets/img/web_development.png";
 import informaticaImg from "../assets/img/informatica.png";
