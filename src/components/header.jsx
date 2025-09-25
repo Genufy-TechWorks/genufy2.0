@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/img/logo.png";
-import "./header.scss";
+import sflogo from "../assets/img/SF-img.png";
 
 const navItems = [
   { name: "Home", url: "/" },
@@ -25,12 +25,18 @@ const Header = () => {
       <header className="bg-white fixed top-0 left-0 right-0 z-11">
         <div className="pt-4 px-7 pb-4">
           <div className="flex justify-between">
-            {/* Logo */}
-            <img
-              src={logo}
-              className="genufy-logo"
-              alt="Genufy TechWorks logo"
-            />
+            <div className="flex gap-5">
+              {/* Logo */}
+              <img
+                src={logo}
+                className="w-[200px]"
+                alt="Genufy TechWorks logo"
+              />
+              <div className="hidden lg:block">
+                {/* SF-Logo */}
+                <img src={sflogo} className="w-[60px]" alt="SF-logo" />
+              </div>
+            </div>
 
             {/* Desktop Menu - hidden on mobile, shown on md and up */}
             <nav className="hidden lg:block mt-5">
@@ -44,10 +50,9 @@ const Header = () => {
                       to={item.url}
                       key={index}
                       className={({ isActive }) =>
-                        `pb-2 ${
-                          isActive && item.url !== "/#contact"
-                            ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
-                            : ""
+                        `pb-2 ${isActive && item.url !== "/#contact"
+                          ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
+                          : ""
                         }`
                       }
                       onClick={() => {
@@ -116,10 +121,9 @@ const Header = () => {
                   }}
                   key={index}
                   className={({ isActive }) =>
-                    `block font-bold text-xl md:text-2xl leading-[29px] ${
-                      isActive && item.url !== "/#contact"
-                        ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
-                        : ""
+                    `block font-bold text-xl md:text-2xl leading-[29px] ${isActive && item.url !== "/#contact"
+                      ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
+                      : ""
                     }`
                   }
                 >
