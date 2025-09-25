@@ -28,9 +28,9 @@ const About = () => {
       >
         <div className="absolute inset-0 bg-opacity-40 flex flex-col items-center justify-center text-white text-center px-4">
           <h1 className="text-xl leading-[26px] lg:text-[40px] lg:leading-[50px] font-bold">
-            We Build Future-Ready
+            Shaping the Future Through 
             <br />
-            Genufy TechWorks
+            Technology and Vision
           </h1>
         </div>
       </section>
