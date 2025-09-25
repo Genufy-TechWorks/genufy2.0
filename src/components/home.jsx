@@ -11,6 +11,7 @@ import mission from "../assets/img/mission.png";
 import Newcarousel from "./newcarousel";
 
 import "./home.scss";
+import SfpartnerOff from "./sfpartneroff";
 
 const home = () => {
   return (
@@ -36,6 +37,10 @@ const home = () => {
             </NavLink>
           </div>
         </div>
+        <div>
+          <SfpartnerOff/>
+        </div>
+
         <img
           src={topo}
           alt="bg-img"

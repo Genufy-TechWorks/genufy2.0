@@ -6,6 +6,7 @@ import icon2 from "../assets/img/about-choose-us-icon-quality.svg";
 import icon3 from "../assets/img/about-choose-us-icon-innovative.svg";
 import icon4 from "../assets/img/about-choose-us-icon-delivery.svg";
 import ceraGif from "../assets/img/about-mascot-cera.gif";
+import SfpartnerOff from "./sfpartneroff";
 
 const About = () => {
   const chooseUs = [
@@ -102,6 +103,10 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        <div>
+          <SfpartnerOff />
+        </div>
 
         {/* Why Choose Us */}
         <section className="lg:mt-30 mt-10 text-center lg:mx-29">
