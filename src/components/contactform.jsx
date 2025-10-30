@@ -67,17 +67,22 @@ export default function ContactForm() {
   };
 
   const handleEmail = () => {
-    const email = formData.email;
-    const isEmailValid = email.trim() === "" || validateEmail(email);
-    // Update email error message
-    setErrors((prev) => ({
-      ...prev,
-      email:
-        !isEmailValid && email.trim() !== ""
-          ? "Please enter a valid email address"
-          : "",
-    }));
-  };
+  const email = formData.email.trim();
+
+  const isEmailValid =
+    email === "" || (email.length >= 3 && validateEmail(email));
+
+  setErrors((prev) => ({
+    ...prev,
+    email:
+      !isEmailValid && email !== ""
+        ? email.length < 3
+          ? "Email must be at least 3 characters long"
+          : "Please enter a valid email address"
+        : "",
+  }));
+};
+
 
   const handlePhone = () => {
     const phone = formData.phone;

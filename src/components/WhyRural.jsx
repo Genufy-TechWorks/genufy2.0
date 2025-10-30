@@ -37,7 +37,9 @@ const WhyRural = () => {
               index % 2 == 0 ? "pl-2" : "pr-2"
             }`}
           >
-            <div className="lg:py-10 lg:px-18 p-3 bg-white">
+            <div className="lg:py-10 lg:px-18 p-3 bg-white transition-all duration-500 ease-in-out
+hover:-translate-x-2 hover:translate-x-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] 
+hover:bg-gradient-to-r hover:from-[#e8fff7] hover:to-[#f9fffa]">
               <h2 className="text-[15px] leading-[18px] lg:text-2xl lg:leading-[29px] font-bold mb-7">
                 {section.title}
               </h2>

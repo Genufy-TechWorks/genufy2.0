@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ruralbg from "../assets/img/rural_bg.jpg";
+import ourvaluesbg from "../assets/img/ourvalues1.gif";
 import Values from "./values";
 import WhyRural from "./WhyRural";
 
@@ -25,7 +26,7 @@ const CompanyValues = () => {
       {/* Hero Section */}
       <div
         className="relative text-white bg-cover"
-        style={{ backgroundImage: `url(${ruralbg})` }}
+        style={{ backgroundImage: `url(${ourvaluesbg})` }}
       >
         {/* <div className="absolute inset-0 bg-black opacity-20"></div> */}
         <div className="relative lg:pt-30 lg:pb-25 lg:py-0 lg:px-0 px-5 py-10 lg:w-[70%] mx-auto text-center">
@@ -37,7 +38,7 @@ const CompanyValues = () => {
           </p>
         </div>
         <div className="flex items-center justify-center">
-          <div className="bg-white py-2 px-5 rounded-t-[30px] absolute">
+          <div className="bg-white py-2 px-5 rounded-t-[30px] absolute flex gap-4 lg:gap-0">
             <button
               className={`font-bold rounded-full p-2 px-4 lg:py-2 lg:px-40 text-black ${
                 herovalue.name == "value"
@@ -49,7 +50,7 @@ const CompanyValues = () => {
               Our Values
             </button>
             <button
-              className={`ml-5 lg:ml-10 font-bold rounded-full p-2 px-4 lg:py-2 lg:px-40 text-black ${
+              className={`lg:ml-10 font-bold rounded-full p-2 px-4 lg:py-2 lg:px-40 text-black ${
                 herovalue.name == "rural"
                   ? "bg-[linear-gradient(90deg,_#90eb61_0%,_#24baac_100%)]"
                   : "border-1"
