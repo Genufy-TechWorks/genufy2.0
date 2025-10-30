@@ -1,22 +1,46 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import salesforceImg from "../assets/img/salesforce.png";
-import mobileappImg from "../assets/img/mobile_app.webp";
-import webdevelopImg from "../assets/img/web_development.png";
-import informaticaImg from "../assets/img/informatica.png";
-import bgline from "../assets/img/common-underline.svg";
+import salesforceImg from "../assets/img/Salesforceicon.png";
+import mobileappImg from "../assets/img/Mobileicon.png";
+import webdevelopImg from "../assets/img/webicon.png";
+import informaticaImg from "../assets/img/informaticaicon.png";
+import aiImg from "../assets/img/AIicon.png";
+import pegaImg from "../assets/img/pegaicon.png"
+
+import sfbg from "../assets/img/sfbackimg.png";
+import informbg from "../assets/img/carouselbg.png";
+import aibg from "../assets/img/carouselbg.png";
+import webbg from "../assets/img/carouselbg.png";
+import mobbg from "../assets/img/carouselbg.png";
+import pegabg from "../assets/img/carouselbg.png";
 
 const AnimatedSlideshow = () => {
   const slides = [
     {
+      title: "AI Development",
+      titleColor:
+        "text-2xl font-bold bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent",
+      bg: aibg ,
+      content: [
+        "We are integrating Artificial Intelligence (AI) across our solutions to enhance efficiency, accuracy, and innovation.",
+        "At Genufy Techworks, we’re committed to building intelligent systems that transform how businesses operate in the digital era.",
+        "Our AI-driven models optimize business workflows and deliver real-time intelligence for smarter operations.",
+        "We leverage machine learning and automation to transform data into powerful business insights",
+      ],
+      url: "/services/ai",
+      logo: aiImg,
+    },
+    {
       title: "Salesforce",
+      bg:sfbg,
+      titleColor: "text-blue-400",
       content: [
         "Empower your customer experience with expert Salesforce services.",
         "We help businesses maximize ROI on Salesforce through scalable, integrated, and automated solutions.",
         "Custom development of Lightning Web Components (LWC) and Aura Components",
         "End-to-end CRM automation using Apex, Flows, and Process Builder",
         "Third-party API integration (REST/SOAP) for unified platforms",
-        "Data modeling and architecture tailored to business logic",
+        // "Data modeling and architecture tailored to business logic",
         "Performance tuning, security configurations, and user adoption strategies",
       ],
       url: "/services/salesforce",
@@ -24,13 +48,15 @@ const AnimatedSlideshow = () => {
     },
     {
       title: "Informatica",
+      bg:informbg,
+      titleColor: "text-orange-400",
       content: [
         "Cloud-first data integration and automation with Informatica IICS.",
         "We streamline data transfer and ETL operations with secure, efficient, and scalable workflows.",
         "Monitor and manage all ETL workflows for continuous data sync",
-        "Automate data pipelines and trigger alerts on job failures",
+        "Automate data pipelines and trigger alerts on job failures",   
         "Secure Agent configuration for encrypted data transfers",
-        "Seamless integration across diverse data sources and targets",
+        // "Seamless integration across diverse data sources and targets",
         "SQL optimization and job re-triggering for flawless data delivery",
       ],
       url: "/services/informatica",
@@ -38,6 +64,9 @@ const AnimatedSlideshow = () => {
     },
     {
       title: "Web Development",
+      bg:webbg,
+      titleColor:
+        "text-2xl font-bold bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent",
       content: [
         "SEO-optimized, scalable websites and web apps built to convert.",
         "We specialize in creating high-performance web platforms that engage users and drive measurable results.",
@@ -45,17 +74,20 @@ const AnimatedSlideshow = () => {
         "Custom CMS and eCommerce platforms for business flexibility",
         "Responsive web design for mobile, tablet, and desktop",
         "SEO fundamentals baked into every build for better rankings",
-        "Lightning-fast load times and top-tier security practices",
+        // "Lightning-fast load times and top-tier security practices",
       ],
       url: "/services/webdevelopment",
       logo: webdevelopImg,
     },
     {
       title: "Mobile App Development",
+      bg:mobbg,
+      titleColor:
+        "text-2xl font-bold bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent",
       content: [
         "Build next-gen mobile apps for iOS, Android, and beyond.",
         "From concept to launch, we create mobile experiences that your users love and your business needs.",
-        "Cross-platform and native mobile app development",
+        // "Cross-platform and native mobile app development",
         "UI/UX design tailored for mobile user behavior",
         "Real-time sync, offline mode, and third-party integrations",
         "Scalable architecture with secure backend APIs",
@@ -63,6 +95,22 @@ const AnimatedSlideshow = () => {
       ],
       url: "/services/mobileappdevelopment",
       logo: mobileappImg,
+    },
+    {
+      title: "Pega",
+      bg: pegabg,
+      titleColor:
+        "text-2xl font-bold bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent",
+      content: [
+        "Empower your enterprise with intelligent automation and AI-driven decisioning through Pega.",
+        "Automate, optimize, and innovate faster with Pega’s low-code intelligent automation platform.",
+        // "Cross-platform and native mobile app development",
+        "Transform business processes with Pega’s AI-powered automation and seamless workflow orchestration.",
+        "Drive smarter decisions and effortless automation with the power of Pega.",
+        "Streamline operations and elevate customer experiences using Pega’s intelligent process automation.",
+      ],
+      url: "/services/pega",
+      logo: pegaImg,
     },
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -101,27 +149,36 @@ const AnimatedSlideshow = () => {
                 : "opacity-0 translate-x-full"
             }`}
           >
-            <div className="relative flex items-center justify-center p-3 overflow-hidden">
+            <div className="relative flex items-center justify-center p-3 overflow-hidden ">
               {/* Main slide container */}
-              <div className="relative ">
+              <div className="relative  rounded-2xl bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] " 
+              style={{
+                     backgroundImage: `url(${slide.bg})`,
+                     backgroundSize: "cover",
+                     backgroundPosition: "center",
+                     backgroundRepeat: "no-repeat",
+                        }}
+                        onMouseEnter={() => setIsPlaying(false)}
+                        onMouseLeave={() => setIsPlaying(true)}
+                   >
                 <div className="flex flex-col lg:flex-row items-center lg:justify-between">
                   {/* Logo placeholder on the left */}
-                  <div className="lg:w-3/7 p-6">
+                  <div className="lg:w-3/7 p-15 flex justify-center align-center">
                     <img
                       src={slides[currentSlide].logo}
                       alt={`${slides[currentSlide].title} logo`}
-                      className="lg:pr-10 object-contain h-50 lg:h-auto"
+                      className=" object-contain h-50 lg:h-auto w"
                     />
                   </div>
 
                   {/* Content card on the right */}
                   <div className="lg:w-4/7 w-[86vw]">
-                    <div className="flex flex-col items-center rounded  bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] p-5 lg:p-10 relative">
+                    <div className="flex flex-col items-left rounded p-5 lg:p-10 relative">
                       <div>
-                        <h2 className="text-4xl font-bold text-gray-800 mb-1">
+                         <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-5 ${slide.titleColor}`}>
                           {slides[currentSlide].title}
                         </h2>
-                        <img src={bgline} alt="border-line" className="mb-8" />
+                        
                       </div>
                       <ul className="space-y-4 list-disc list-inside">
                         {slides[currentSlide].content.map((item, idx) => (
@@ -132,7 +189,7 @@ const AnimatedSlideshow = () => {
                       </ul>
                       <NavLink
                         to={slide.url}
-                        className="mt-8 text-green-500 font-medium"
+                        className="mt-8 text-green-500 font-bold text-lg"
                       >
                         View More
                       </NavLink>

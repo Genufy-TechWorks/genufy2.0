@@ -1,4 +1,4 @@
-import aboutbg from "../assets/img/about-hero-bg.jpg";
+import aboutbg from "../assets/img/aboutbackground.jpg";
 import bgline from "../assets/img/common-underline.svg";
 import sicon from "../assets/img/service_icon.svg";
 import icon1 from "../assets/img/about-choose-us-icon-career.svg";
@@ -10,12 +10,12 @@ import SfpartnerOff from "./sfpartneroff";
 
 const About = () => {
   const chooseUs = [
-    { title: "Why Choose Us", subtitle: "Career support", icon: icon1 },
-    { title: "Quality Driven", subtitle: "Quality support", icon: icon2 },
-    { title: "Innovative", subtitle: "Thinking", icon: icon3 },
+    { title: "Trusted Partnership", subtitle: "We go beyond services to build long-term partnerships, offering expert guidance and dedicated career support.", icon: icon1 },
+    { title: "Quality-Driven Approach", subtitle: "Every project is delivered with inflexible quality standards and proactive support.", icon: icon2 },
+    { title: "Innovative Thinking", subtitle: "We apply creative, forward-looking solutions to solve complex business challenges.", icon: icon3 },
     {
-      title: "On Time Delivery",
-      subtitle: "Time delivery",
+      title: "On-Time Delivery",
+      subtitle: "We consistently meet deadlines with efficient processes and reliable execution.",
       icon: icon4,
     },
   ];
@@ -23,14 +23,14 @@ const About = () => {
     <div className="bg-white space-y-16">
       {/* Hero Section */}
       <section
-        className="relative lg:h-[500px] h-[250px] bg-cover bg-center mb-0"
+        className="relative lg:h-[600px] h-[250px] bg-cover bg-center mb-0"
         style={{ backgroundImage: `url(${aboutbg})` }}
       >
         <div className="absolute inset-0 bg-opacity-40 flex flex-col items-center justify-center text-white text-center px-4">
           <h1 className="text-xl leading-[26px] lg:text-[40px] lg:leading-[50px] font-bold">
-            We Build Future-Ready
+            Shaping the Future Through
             <br />
-            Genufy TechWorks
+            Technology and Vision
           </h1>
         </div>
       </section>
@@ -117,18 +117,19 @@ const About = () => {
             {chooseUs.map((item, idx) => (
               <div
                 key={idx}
-                className="p-3 pb-0 lg:p-4 shadow-[0px_0px_5px_rgba(0,0,0,0.5)] rounded-md text-center"
+                className="p-3 pb-0 lg:p-4 shadow-[0px_0px_5px_rgba(0,0,0,0.5)] rounded-[12px] text-center transition-all duration-500 ease-in-out 
+                hover:scale-105 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:bg-gradient-to-r hover:from-[#e8fff7] hover:to-[#f9fffa]"
               >
                 <div className="flex justify-center">
                   <img
-                    className="mb-2 w-11 lg:w-[77px] lg:h-[77px]"
+                    className="mb-2 w-11 lg:w-[60px] lg:h-[70px]"
                     src={item.icon}
                   />
                 </div>
-                <h4 className="font-semibold text-base lg:text-2xl leading-[50px] text-[#5FD484]">
+                <h4 className="font-semibold text-base lg:text-xl leading-[38px] text-[#5FD484]">
                   {item.title}
                 </h4>
-                <p className="text-xl leading-[50px]">{item.subtitle}</p>
+                <p className="text-xl leading-[35px]">{item.subtitle}</p>
               </div>
             ))}
           </div>

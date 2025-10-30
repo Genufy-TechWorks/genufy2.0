@@ -4,6 +4,7 @@ import ContactForm from "./contactform";
 import topo from "../assets/img/topo-left.svg";
 import topoRight from "../assets/img/topo-right.svg";
 import sicon from "../assets/img/service_icon.svg";
+import sfcertificate from "../assets/img/sfcertificate.svg";
 
 const ServicePage = () => {
   const { serviceName } = useParams();
@@ -20,6 +21,108 @@ const ServicePage = () => {
 
   // Service data structure
   const services = {
+    aidevelopment: {
+      "AI-Powered Predictive Analytics": {
+        title: "AI-Powered Predictive Analytics",
+        icon: "📊",
+        description:
+          "Transform Data into Predictive Insights for Smarter Decisions",
+        longDescription:
+          "Unlock the potential of your data with AI-driven predictive models that provide accurate forecasts and actionable insights. From sales trends to customer behavior, our AI solutions help you make informed decisions and optimize your strategy.",
+        features: [
+          "Time-series forecasting for sales, inventory, and demand planning",
+          "Predictive models for customer churn, product success, and risk factors",
+          "Real-time data processing for on-the-fly analysis",
+          "Integration with existing business intelligence (BI) tools for seamless reporting",
+        ],
+        benefits: [
+          "Make proactive decisions with data-backed predictions",
+          "Identify opportunities and risks before they arise",
+          "Optimize resource allocation and demand forecasting",
+          "Improve customer retention and reduce churn with personalized predictions",
+        ],
+      },
+      "Natural Language Processing (NLP) and Chatbots": {
+        title: "Natural Language Processing (NLP) and Chatbots",
+        icon: "🗣️",
+        description:
+          "Enhance Customer Engagement with AI-Driven Conversations",
+        longDescription:
+          "Utilize NLP and advanced chatbots to offer dynamic, personalized customer interactions. From automated customer support to lead generation, our NLP solutions enhance user experience, delivering human-like communication at scale.",
+        features: [
+          "AI-powered chatbots for 24/7 customer support",
+          "Sentiment analysis to gauge customer satisfaction",
+          "Voice and text-based virtual assistants for customer inquiries",
+          "Integration with CRM systems for a seamless customer journey",
+        ],
+        benefits: [
+          "Improve customer satisfaction with instant, personalized responses",
+          "Free up human agents for more complex tasks while automating routine inquiries",
+          "Analyze customer sentiment to refine service strategies",
+          "Reduce operational costs with efficient, automated customer support",
+        ],
+      },
+      mdm: {
+        title: "Machine Learning for Automation & Process Optimization",
+        icon: "⚙️",
+        description:
+          "Automate and Optimize Your Business Processes with Machine Learning",
+        longDescription:
+          "Streamline operations and increase efficiency by applying machine learning to process automation. From fraud detection to supply chain optimization, our solutions help automate decision-making and improve overall business performance.",
+        features: [
+          "Anomaly detection for fraud, network security, and operational inefficiencies",
+          "Optimization algorithms for supply chain and logistics management",
+          "AI-powered recommendations for inventory management and demand forecasting",
+          "Custom machine learning models for domain-specific automation",
+        ],
+        benefits: [
+          "Reduce manual errors and bottlenecks with intelligent process automation",
+          "Optimize business processes and resource allocation",
+          "Detect fraud or issues early with AI-driven anomaly detection",
+          "Scale operations more effectively by automating critical decisions",
+        ],
+      },
+      "meta-management": {
+        title: "Computer Vision for Image & Video Analysis",
+        icon: "👁️",
+        description:
+          "Leverage AI to Analyze Visual Data for Business Insights",
+        longDescription:
+          "Use AI to automate image and video analysis, enabling a wide range of applications from quality control to facial recognition. Our computer vision solutions empower businesses to extract valuable insights from visual data quickly and accurately.",
+        features: [
+          "Object detection and classification for automated quality assurance",
+          "Facial recognition for secure access control and customer identification",
+          "Automated tagging and metadata extraction from images and videos",
+          "Integration with IoT devices for real-time visual monitoring",
+        ],
+        benefits: [
+          "Automate manual inspection and reduce human error",
+          "Enhance security with AI-powered facial and object recognition",
+          "Gain insights from visual data to improve product quality and user experience",
+          "Increase operational efficiency by analyzing large volumes of visual data automatically",
+        ],
+      },
+      iPaaS: {
+        title: "AI-Driven Personalization Engines",
+        icon: "🎯",
+        description:
+          "Deliver Tailored Customer Experiences Powered by AI",
+        longDescription:
+          "Leverage AI to personalize your customer interactions, from tailored content recommendations to individualized product offerings. Our solutions enable real-time personalization based on user behavior and preferences, boosting engagement and loyalty.",
+        features: [
+          "Personalized content and product recommendations based on user behavior",
+          "Real-time data analysis for adaptive marketing campaigns",
+          "Customer segmentation and targeting with AI-powered insights",
+          "Integration with eCommerce platforms for dynamic, personalized shopping experiences",
+        ],
+        benefits: [
+          "Increase conversion rates and sales by delivering personalized experiences",
+          "Boost customer satisfaction and loyalty with relevant, tailored offerings",
+          "Improve marketing ROI by targeting the right customers with personalized campaigns",
+          "Enhance user engagement with dynamic, adaptive content",
+        ],
+      },
+    },
     informatica: {
       "informatica-cloud-data-integration": {
         title: "Cloud Data Integration",
@@ -445,9 +548,96 @@ const ServicePage = () => {
         ],
       },
     },
+    pega: {
+      "informatica-cloud-data-integration": {
+        title: "Pega BPM (Business Process Management) Implementation",
+        icon: "☁️",
+        description:
+          "Automate and Optimize Business Processes with Pega BPM",
+        longDescription:
+          "Utilize Pega’s Business Process Management (BPM) capabilities to streamline workflows, automate processes, and enhance collaboration across teams. With Pega, businesses can create end-to-end automated workflows that reduce inefficiencies and improve operational outcomes",
+        features: [
+          "End-to-end process automation for sales, customer service, and HR",
+          "Drag-and-drop process modeling with Pega's visual interface",
+          "Intelligent task routing and real-time process monitoring",
+          "Integration with existing business systems and applications",
+        ],
+        benefits: [
+          "Increase operational efficiency by automating manual tasks",
+          "Reduce process bottlenecks and improve workflow consistency",
+          "Empower teams to focus on higher-value activities while Pega handles routine tasks",
+          "Accelerate time-to-market by building scalable workflows quickly",
+        ],
+      },
+      "quality-governance": {
+        title: "Pega CRM (Customer Relationship Management)",
+        icon: "☁️",
+        description:
+          "Create Seamless Customer Journeys with Pega CRM",
+        longDescription:
+          "Pega CRM provides businesses with the tools to manage customer interactions across all channels. From personalized service to omnichannel marketing, our Pega-powered CRM solutions create a unified, seamless experience for customers and teams alike.",
+        features: [
+          "Unified customer profiles across sales, service, and marketing",
+          "Case management for efficient customer support and resolution",
+          "Omnichannel capabilities for managing customer communications",
+          "AI-driven insights for sales forecasting and customer behavior prediction",
+        ],
+        benefits: [
+          "Deliver a seamless customer experience across every touchpoint",
+          "Improve customer satisfaction and loyalty with personalized support",
+          "Increase sales efficiency with AI-powered lead scoring and opportunity management",
+          "Enhance team collaboration with centralized customer information",
+        ],
+      },
+      mdm: {
+        title: "Pega AI & Decisioning",
+        icon: "☁️",
+        description:
+          "Description: Make Smarter Decisions with Pega’s AI & Decisioning Solutions",
+        longDescription:
+          "Leverage Pega's AI-powered decision engine to drive smarter, automated decisions at scale. Whether it's customer onboarding, loan approvals, or dynamic pricing, Pega’s AI and decisioning tools help businesses optimize processes and improve outcomes.",
+        features: [
+          "Real-time decisioning based on customer data and behavior",
+          "AI-powered rules engine for automating complex decisions",
+          "Adaptive analytics for continuous optimization of decision models",
+          "Integration with customer data sources for context-driven decision-making",
+        ],
+        benefits: [
+          "Automate decision-making to increase speed and reduce human error",
+          "Make data-driven decisions that adapt in real-time to market conditions",
+          "Improve business agility by optimizing decision-making across processes",
+          "Increase customer satisfaction with faster, more relevant responses",
+        ],
+      },
+      "meta-management": {
+        title: "Pega Robotic Process Automation (RPA)",
+        icon: "☁️",
+        description:
+          "Automate Repetitive Tasks with Pega RPA",
+        longDescription:
+          "Utilize Pega’s RPA tools to automate repetitive, rule-based tasks across your business. Whether it’s processing invoices, managing inventory, or handling customer requests, RPA can help reduce errors and increase productivity.",
+        features: [
+          "Automate rule-based tasks like data entry, invoicing, and customer queries",
+          "Integrate Pega RPA with existing systems and applications for seamless automation",
+          "Robotic workflows that mimic human actions for greater efficiency",
+          "Centralized RPA management for tracking and monitoring bot performance",
+        ],
+        benefits: [
+          "Free up valuable time by automating routine tasks",
+          "Improve accuracy and reduce operational costs with automated workflows",
+          "Scale operations without the need for additional manual resources",
+          "Enhance customer service with quicker, error-free processing",
+        ],
+      },
+    },
   };
 
   const [uiName, setuiName] = useState({
+    aidevelopment: {
+      title: "AI Development",
+      description:
+        "At Genufy, we deliver cutting-edge AI development services that transform your business operations, optimize decision-making, and enhance customer experiences. From machine learning models to advanced data analytics, we design intelligent solutions that drive innovation and foster sustainable growth. Whether you're looking to integrate AI into existing systems or develop custom AI-driven applications, our team tailors every solution to meet your unique business needs.",
+    },
     salesforce: {
       title: "Salesforce ",
       description:
@@ -467,6 +657,11 @@ const ServicePage = () => {
       title: "Mobile App Development ",
       description:
         "We build high-performance mobile applications tailored to your business needs. Whether it’s iOS, Android, or cross-platform, our apps deliver seamless user experiences, deep integrations, and measurable business results.",
+    },
+    pega: {
+      title: "Pega",
+      description:
+        "At Genufy, we specialize in delivering Pega-based solutions that streamline processes, improve operational efficiency, and elevate customer engagement. From implementing Pega BPM and CRM platforms to developing sophisticated multi-channel applications, we create customized solutions that support your enterprise's digital transformation. Our expert team designs and integrates Pega systems that accelerate business outcomes and provide a scalable framework for future growth.",
     },
   });
 
@@ -548,37 +743,37 @@ const ServicePage = () => {
         {["application-development", "field-service-lightning"].includes(
           subService
         ) && (
-          <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 mb-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              Lead with Lightning Development
-            </h3>
-            <p className="text-gray-700 mb-4">
-              In Salesforce environment with every release, the list of
-              Lightning-exclusive features grows larger. Lightning Experience is
-              the future of Salesforce enhancements. Organizations that are not
-              adopting Lightning are falling behind and missing out on the
-              innovations, user- friendliness, and collaboration that allow
-              Lightning users to connect with their prospects and customers on a
-              strategic level, resulting in better customer relationships.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              {[
-                "Overview",
-                "Examine",
-                "Proposal",
-                "Implementation",
-                "Adoption",
-              ].map((step, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <span className="text-green-500">✓</span>
-                  <span className="text-sm font-medium text-gray-700">
-                    {step}
-                  </span>
-                </div>
-              ))}
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Lead with Lightning Development
+              </h3>
+              <p className="text-gray-700 mb-4">
+                In Salesforce environment with every release, the list of
+                Lightning-exclusive features grows larger. Lightning Experience is
+                the future of Salesforce enhancements. Organizations that are not
+                adopting Lightning are falling behind and missing out on the
+                innovations, user- friendliness, and collaboration that allow
+                Lightning users to connect with their prospects and customers on a
+                strategic level, resulting in better customer relationships.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {[
+                  "Overview",
+                  "Examine",
+                  "Proposal",
+                  "Implementation",
+                  "Adoption",
+                ].map((step, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <span className="text-green-500">✓</span>
+                    <span className="text-sm font-medium text-gray-700">
+                      {step}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         {/* CTA Section */}
         <div className="bg-gray-50 rounded-lg p-6 text-center">
@@ -613,6 +808,16 @@ const ServicePage = () => {
         <div className="lg:text-xl lg:w-[65%] m-auto text-sm leading-[26px] lg:leading-[50px] text-center font-medium">
           {uiName[currentService].description}
         </div>
+        {/* {currentService === "salesforce" && (
+          <div className="flex justify-center mt-6">
+            <img
+              src={salesforceImage}
+              alt="Salesforce Page Banner"
+              className="w-[400px] rounded-xl shadow-lg"
+            />
+          </div>
+        )} */}
+
         <img
           src={topo}
           alt="bg-img"
@@ -685,12 +890,12 @@ const ServicePage = () => {
                   expandedServices[key]) && (
                   <div
                     className="mt-2 p-4 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.25)]"
-                    // onClick={() =>
-                    //   setExpandedServices((prev) => ({
-                    //     ...prev,
-                    //     [key]: !(prev[key] === undefined ? true : prev[key]),
-                    //   }))
-                    // }
+                  // onClick={() =>
+                  //   setExpandedServices((prev) => ({
+                  //     ...prev,
+                  //     [key]: !(prev[key] === undefined ? true : prev[key]),
+                  //   }))
+                  // }
                   >
                     <ServiceContent subService={subService} />
                   </div>
@@ -707,11 +912,10 @@ const ServicePage = () => {
                   <button
                     key={key}
                     onClick={() => handleServiceChange(key)}
-                    className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-all ${
-                      subService.title === svc.title
-                        ? "drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-gradient-to-r from-[#ABFA50] to-[#32EAD0] rounded"
-                        : "shadow-[0_0_10px_rgba(0,0,0,0.25)] hover:bg-gray-50 text-gray-700"
-                    }`}
+                    className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-all ${subService.title === svc.title
+                      ? "drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-gradient-to-r from-[#ABFA50] to-[#32EAD0] rounded"
+                      : "shadow-[0_0_10px_rgba(0,0,0,0.25)] hover:bg-gray-50 text-gray-700"
+                      }`}
                   >
                     <span className="font-bold">{svc.title}</span>
                     <span>
@@ -725,9 +929,8 @@ const ServicePage = () => {
                         <rect width="48" height="48" rx="8" />
                         <path
                           d="M14 10L34 24L14 38L18 24L14 10Z"
-                          fill={` ${
-                            subService.title === svc.title ? "white" : "#1F2937"
-                          }`}
+                          fill={` ${subService.title === svc.title ? "white" : "#1F2937"
+                            }`}
                           stroke="#1F2937"
                           width="2"
                           linejoin="round"
@@ -795,42 +998,42 @@ const ServicePage = () => {
                   "application-development",
                   "field-service-lightning",
                 ].includes(subService) && (
-                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 mb-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      Lead with Lightning Development
-                    </h3>
-                    <p className="text-gray-700 mb-4">
-                      In Salesforce environment with every release, the list of
-                      Lightning-exclusive features grows larger. Lightning
-                      Experience is the future of Salesforce enhancements.
-                      Organizations that are not adopting Lightning are falling
-                      behind and missing out on the innovations, user-
-                      friendliness, and collaboration that allow Lightning users
-                      to connect with their prospects and customers on a
-                      strategic level, resulting in better customer
-                      relationships.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                      {[
-                        "Overview",
-                        "Examine",
-                        "Proposal",
-                        "Implementation",
-                        "Adoption",
-                      ].map((step, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center space-x-2"
-                        >
-                          <span className="text-green-500">✓</span>
-                          <span className="text-sm font-medium text-gray-700">
-                            {step}
-                          </span>
-                        </div>
-                      ))}
+                    <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 mb-8">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">
+                        Lead with Lightning Development
+                      </h3>
+                      <p className="text-gray-700 mb-4">
+                        In Salesforce environment with every release, the list of
+                        Lightning-exclusive features grows larger. Lightning
+                        Experience is the future of Salesforce enhancements.
+                        Organizations that are not adopting Lightning are falling
+                        behind and missing out on the innovations, user-
+                        friendliness, and collaboration that allow Lightning users
+                        to connect with their prospects and customers on a
+                        strategic level, resulting in better customer
+                        relationships.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        {[
+                          "Overview",
+                          "Examine",
+                          "Proposal",
+                          "Implementation",
+                          "Adoption",
+                        ].map((step, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center space-x-2"
+                          >
+                            <span className="text-green-500">✓</span>
+                            <span className="text-sm font-medium text-gray-700">
+                              {step}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
                 {/* CTA Section */}
                 <div className="bg-gray-50 rounded-lg p-6 text-center">
@@ -852,6 +1055,15 @@ const ServicePage = () => {
             </div>
           </div>
         </div>
+        {currentService === "salesforce" && (
+          <div className="flex justify-center my-10">
+            <img
+              src={sfcertificate}
+              alt="Salesforce Section Banner"
+              className="w-full max-w-6xl rounded-xl shadow-lg"
+            />
+          </div>
+        )}
         <div id="contact" className="home-contact px-6 mt-15 lg:mt-25">
           <div className="flex items-start">
             <div className="mt-1">
