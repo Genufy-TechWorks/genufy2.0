@@ -6,10 +6,21 @@ import salesforceImg from "../assets/img/salesforce.png";
 import mobileappImg from "../assets/img/mobile_app.webp";
 import webdevelopImg from "../assets/img/web_development.png";
 import informaticaImg from "../assets/img/informatica.png";
+import aiImg from "../assets/img/aiimg.jpg";
+import pegaImg from "../assets/img/pegaimg.png";
 import { Link } from "react-router-dom";
 
 export default function ServicesPage() {
   const serviceCards = [
+    {
+      title: "AI Development",
+      subtitle:
+        "We specialize in creating intelligent, data-driven solutions that leverage AI to transform your business. Our expertise spans machine learning, NLP, predictive analytics, and automation, enabling enterprises to make smarter decisions and streamline operations.",
+      description:
+        "From predictive analytics and AI-powered automation to natural language processing and computer vision, we deliver end-to-end AI solutions that empower businesses to enhance productivity, optimize workflows, and create personalized customer experiences.",
+      route: "aidevelopment",
+      img: aiImg,
+    },
     {
       title: "salesforce",
       subtitle:
@@ -45,6 +56,15 @@ export default function ServicesPage() {
         "From idea to launch, we deliver apps that are secure, responsive, and ready for real-world usage across Android and iOS.",
       route: "mobileappdevelopment",
       img: mobileappImg,
+    },
+    {
+      title: "pega",
+      subtitle:
+        "We specialize in delivering powerful process automation and CRM solutions using Pega’s low-code platform. With deep expertise in Pega BPM and CRM, we help enterprises optimize workflows, automate decisions, and deliver exceptional customer experiences.",
+      description:
+        "From business process management (BPM) to customer engagement and intelligent decisioning, our Pega solutions enable businesses to streamline operations, automate complex workflows, and drive scalable growth across channels.",
+      route: "pega",
+      img: pegaImg,
     },
   ];
 
@@ -128,7 +148,9 @@ export default function ServicesPage() {
             {serviceCards.map((card, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center border border-white shadow-[0_0_10px_rgba(0,0,0,0.25)] text-justify rounded-[10px] p-10"
+                className="flex flex-col items-center border border-white shadow-[0_0_10px_rgba(0,0,0,0.25)] text-justify rounded-[10px] p-10 bg-white transition-all duration-500 ease-in-out 
+  hover:scale-105 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:bg-gradient-to-r hover:from-[#e8fff7] hover:to-[#f9fffa]"
+
               >
                 <div className="flex flex-col items-center mb-4">
                   <img
@@ -140,16 +162,21 @@ export default function ServicesPage() {
                     {card.title}
                   </h3>
                 </div>
-                <p className="text-lg font-medium lg:mb-4 leading-[26px]">
+                <p className="text-lg font-medium lg:mb-4 leading-[26px] text-center lg:text-justify">
                   {card.subtitle}
                 </p>
-                <p className="text-lg grow font-medium lg:mb-6 mb-5 leading-[26px]">
+                <p className="text-lg grow font-medium lg:mb-6 mb-5 leading-[26px] text-center lg:text-justify">
                   {card.description}
                 </p>
                 <Link
                   to={`/services/${card.route}`}
-                  className={`hover:underline text-base lg:text-xl leading-[50px] font-bold flex items-center`}
-                >
+                  className="relative text-base lg:text-xl leading-[50px] font-bold flex items-center 
+                        hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r 
+                        hover:from-[#24baac] hover:to-[#90eb61] transition-all duration-300
+                        after:content-[''] after:absolute after:left-0 after:bottom-2 after:h-[2px] after:w-0 
+                        hover:after:w-full after:transition-all after:duration-300 
+                        after:bg-gradient-to-r after:from-[#24baac] after:to-[#90eb61] mt-6"
+                    >
                   View more
                 </Link>
               </div>

@@ -121,7 +121,7 @@ const home = () => {
             </div>
             <div className="mt-8 flex items-start">
               <div className="lg:ml-28 font-medium text-sm leading-[26px] text-center lg:text-left lg:text-xl lg:leading-[50px] lg:ml-28">
-                At GENUFY, innovation meets inspiration and Cera is the face of
+                At Genufy, innovation meets inspiration and Cera is the face of
                 it all. More than just a mascot, Cera is your friendly tech
                 companion on a mission to transform dreams into milestones. With
                 a heart full of curiosity, a head packed with knowledge, and a
@@ -198,6 +198,8 @@ const home = () => {
           className="lg:w-[450px] w-[250px] "
         />
       </div>
+      <br />
+      <br />
       <div
         id="contact"
         className="home-contact home-about-align px-4 mt-15 lg:mt-25 lg:px-15"

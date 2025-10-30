@@ -65,14 +65,18 @@ const Products = () => {
               <a
                 href={product.url}
                 target="_blank"
-                className="bg-[#0D0D40] rounded-[34px] p-3 flex items-center gap-4"
+                className="bg-[#0d0c41] rounded-[34px] p-3 flex items-center gap-4"
               >
                 <div className="bg-white rounded-[20px] p-2 text-center">
                   <img
                     src={product.path}
                     alt={product.name}
-                    className="w-30 rounded-[20px]"
+                    className={`object-contain rounded-[20px] ${product.name === "Expense Manager"
+                        ? "w-[80px] h-[70px] md:w-[95px] md:h-[95px] border-5 border-[#0D0D40]-500"
+                        : "w-[100px] h-[70px] md:w-[100px] md:h-[100px]"
+                      }`}
                   />
+
                 </div>
                 <div className="ml-2 text-white">
                   <div className="lg:text-4xl text-xl  lg:leading-[33px]">
