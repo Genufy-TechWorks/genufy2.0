@@ -113,7 +113,10 @@ const Header = () => {
                 <a
                   href="/#contact"
                   key={index}
-                  onClick={handleContactClick}
+                  onClick={() => {
+                    handleContactClick();
+                  setIsOpen(false);
+                  }}
                   className="block text-xl md:text-2xl leading-[29px] text-gray-800 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#85E669] hover:to-[#2CBDA7]"
                 >
                   {item.name}
@@ -122,6 +125,7 @@ const Header = () => {
                 <NavLink
                   to={item.url}
                   key={index}
+                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `block text-xl md:text-2xl leading-[29px] ${isActive && item.url !== "/#contact"
                       ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
