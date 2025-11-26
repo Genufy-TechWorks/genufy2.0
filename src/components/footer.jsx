@@ -250,7 +250,7 @@ export default function Footer() {
       <div className="lg:block p-2 bg-[#0D0C41]"></div>
       {/* White section with logo */}
       <div className="flex bg-white py-4 gap-4 lg:gap-6 justify-center">
-      <a href="http://localhost:5173/"><img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" /></a>
+      <a href="/"><img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" /></a>
               {/* SF-Logo */}
       <img src={sflogo} className="w-[60px]" alt="SF-logo" />
       </div>

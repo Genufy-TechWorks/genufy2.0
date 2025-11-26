@@ -69,7 +69,7 @@ const Header = () => {
       <div className="pt-4 px-7 pb-4">
         <div className="flex justify-between items-center relative z-50">
           <div className="flex gap-5 items-center">
-            <a href="http://localhost:5173/">
+            <a href="/">
               <img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" />
             </a>
             <div className="hidden lg:block">

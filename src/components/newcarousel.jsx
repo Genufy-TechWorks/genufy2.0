@@ -6,6 +6,7 @@ import webdevelopImg from "../assets/img/webicon.png";
 import informaticaImg from "../assets/img/informaticaicon.png";
 import aiImg from "../assets/img/AIicon.png";
 import pegaImg from "../assets/img/pegaicon.png";
+import snowflakeImg from "../assets/img/snowflakeimg.svg";
 
 import sfbg from "../assets/img/sfbackimg.png";
 import informbg from "../assets/img/carouselbg.png";
@@ -13,6 +14,7 @@ import aibg from "../assets/img/carouselbg.png";
 import webbg from "../assets/img/carouselbg.png";
 import mobbg from "../assets/img/carouselbg.png";
 import pegabg from "../assets/img/carouselbg.png";
+import snowbg from "../assets/img/carouselbg.png";
 
 const AnimatedSlideshow = () => {
   const slides = [
@@ -112,6 +114,21 @@ const AnimatedSlideshow = () => {
       url: "/services/pega",
       logo: pegaImg,
     },
+    {
+      title: "Snowflake",
+      bg: snowbg,
+      titleColor: "text-blue-500",
+      content: [
+        "Leverage Snowflake's Data Cloud to unite your siloed data into a single source of truth.",
+        "Discover and securely share live data across your organization and with external partners without copying.",
+        "Execute diverse analytic workloads including Data Warehousing, Data Lakes, and Data Science with speed and efficiency.",
+        "Ensure seamless data collaboration and governance with built-in security and compliance features.",
+        "Scale instantly and infinitely to handle any amount of data and any number of concurrent users.",
+        "Optimize costs with per-second pricing and automatic suspension of unused compute resources.",
+      ],
+      url: "/services/snowflake",
+      logo: snowflakeImg,
+    },
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -169,35 +186,48 @@ const AnimatedSlideshow = () => {
     setIsPlaying((prev) => !prev);
   };
 
+  const getSlideClass = (index) => {
+    const len = slides.length;
+    let pos = index - currentSlide;
+    
+    // Adjust position for wrap-around
+    if (pos < -Math.floor(len / 2)) pos += len;
+    if (pos > Math.floor(len / 2)) pos -= len;
+
+    if (pos === 0) return "opacity-100 translate-x-0 z-10";
+    if (pos < 0) return "opacity-0 -translate-x-full z-0";
+    return "opacity-0 translate-x-full z-0";
+  };
+
   return (
-    <div className="relative w-full lg:h-[675px] md:h-[800px] h-[1000px] overflow-hidden">
+    <div className="relative w-full lg:h-[675px] md:h-[800px] h-[750px] overflow-hidden">
       {/* Slides Container */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-              index === currentSlide
-                ? "opacity-100 translate-x-0"
-                : index < currentSlide
-                ? "opacity-0 -translate-x-full"
-                : "opacity-0 translate-x-full"
-            }`}
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${getSlideClass(index)}`}
           >
-            <div className="relative flex items-center justify-center p-3 overflow-hidden ">
+            <div className="relative flex items-center justify-center p-3 overflow-hidden h-full">
               {/* Main slide container */}
               <div
-                className="relative  rounded-2xl bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] "
-                style={{
-                  backgroundImage: `url(${slide.bg})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
+                className="relative rounded-2xl bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] min-h-[500px] w-full max-w-6xl mx-auto overflow-hidden"
                 onMouseEnter={() => setIsPlaying(false)}
                 onMouseLeave={() => setIsPlaying(true)}
               >
-                <div className="flex flex-col lg:flex-row items-center lg:justify-between">
+                {/* Background Image - Hidden on Mobile */}
+                <div 
+                  className="absolute inset-0 hidden lg:block"
+                  style={{
+                    backgroundImage: `url(${slide.bg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col lg:flex-row items-center lg:justify-between h-full">
                   {/* Logo placeholder on the left */}
                   <div className="lg:w-3/7 p-15 flex justify-center align-center">
                     <img
@@ -265,7 +295,7 @@ const AnimatedSlideshow = () => {
       {/* Slide indicators */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 top-1/3 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-0"
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-20"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +307,7 @@ const AnimatedSlideshow = () => {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-3 top-1/3 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-0"
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-20"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
