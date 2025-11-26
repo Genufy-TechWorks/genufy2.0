@@ -239,6 +239,7 @@ export default function Footer() {
     { name: "Web Development", url: "/services/webdevelopment" },
     { name: "Mobile App Development", url: "/services/mobileappdevelopment" },
     { name: "Pega", url: "/services/pega" },
+    { name: "Snowflake", url: "/services/snowflake" },
   ];
   const companyLinks = [
     { name: "About ", url: "/about" },
@@ -246,12 +247,12 @@ export default function Footer() {
   ];
   return (
     <footer className="flex flex-col w-full">
-      <div className="hidden lg:block p-2 bg-[#0D0C41]"></div>
+      <div className="lg:block p-2 bg-[#0D0C41]"></div>
       {/* White section with logo */}
       <div className="flex bg-white py-4 gap-4 lg:gap-6 justify-center">
-        <a href="http://localhost:5173/"><img src={logo} alt="Genufy TechWorks Logo" className="w-48 lg:w-auto h-20" /></a>
-        {/* SF-Logo */}
-        <img src={sflogo} className="w-16 lg:w-[80px] h-[75px]" alt="SF-logo" />
+      <a href="http://localhost:5173/"><img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" /></a>
+              {/* SF-Logo */}
+      <img src={sflogo} className="w-[60px]" alt="SF-logo" />
       </div>
 
 
