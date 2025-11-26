@@ -17,7 +17,7 @@ function SfpartnerOff() {
         </div>
         <div className="text-center md:text-left">
           <h1 className="text-xl md:text-[30px] font-bold leading-loose md:leading-[2.5]">
-            We are a official{" "}
+            We are an official{" "}
             <span className="text-[#00A1E0] text-nowrap">
               Salesforce partner.
             </span>

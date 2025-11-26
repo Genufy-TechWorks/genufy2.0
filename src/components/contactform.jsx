@@ -170,7 +170,7 @@ export default function ContactForm() {
                 value={formData.firstName}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border-b border-gray-300 focus:border-black outline-none transition-colors"
-                placeholder=""
+                placeholder="Enter your first name.."
                 required
               />
             </div>
@@ -189,6 +189,7 @@ export default function ContactForm() {
                 value={formData.lastName}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border-b border-gray-300 focus:border-black outline-none transition-colors"
+                placeholder="Enter your last name.."
                 required
               />
             </div>
@@ -213,6 +214,7 @@ export default function ContactForm() {
                 className={`w-full px-3 py-2 border-b ${
                   errors.email ? "border-red-500" : "border-gray-300"
                 } focus:border-black outline-none transition-colors`}
+                placeholder="Enter your email.."
                 required
               />
               {errors.email && (
@@ -237,6 +239,7 @@ export default function ContactForm() {
                 className={`w-full px-3 py-2 border-b ${
                   errors.phone ? "border-red-500" : "border-gray-300"
                 } focus:border-black outline-none transition-colors`}
+                placeholder="Enter your phone number.."
                 required
               />
               {errors.phone && (

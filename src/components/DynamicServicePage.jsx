@@ -21,7 +21,7 @@ const ServicePage = () => {
 
   // Service data structure
   const services = {
-    aidevelopment: {
+    aisolutions: {
       "AI-Powered Predictive Analytics": {
         title: "AI-Powered Predictive Analytics",
         icon: "📊",
@@ -633,8 +633,8 @@ const ServicePage = () => {
   };
 
   const [uiName, setuiName] = useState({
-    aidevelopment: {
-      title: "AI Development",
+    aisolutions: {
+      title: "AI Solutions",
       description:
         "At Genufy, we deliver cutting-edge AI development services that transform your business operations, optimize decision-making, and enhance customer experiences. From machine learning models to advanced data analytics, we design intelligent solutions that drive innovation and foster sustainable growth. Whether you're looking to integrate AI into existing systems or develop custom AI-driven applications, our team tailors every solution to meet your unique business needs.",
     },
@@ -845,21 +845,34 @@ const ServicePage = () => {
           {Object.entries(service).map(([key, svc]) => (
             <div key={key} className="mb-4">
               <button
-                onClick={() => {
-                  if (subService && subService.title === svc.title) {
-                    console.log(expandedServices);
-                    // Toggle only this service's visibility
-                    setExpandedServices((prev) => ({
-                      ...prev,
-                      [key]: !prev[key],
-                    }));
-                  } else {
-                    setExpandedServices((prev) => ({
-                      ...prev,
-                      [key]: !prev[key],
-                    }));
-                    handleServiceChange(key);
-                  }
+                // onClick={(e) => {
+                //   if (subService && subService.title === svc.title) {
+                //     console.log(expandedServices);
+                //     // Toggle only this service's visibility
+                //     setExpandedServices((prev) => ({
+                //       ...prev,
+                //       [key]: !prev[key],
+                //     }));
+                //   } else {
+                //     setExpandedServices((prev) => ({
+                //       ...prev,
+                //       [key]: !prev[key],
+                //     }));
+                //     handleServiceChange(key);
+                //   }
+                // }}
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent triggering outside click
+                  setExpandedServices((prev) => {
+                    // Close all, then toggle only the clicked one
+                    const newState = Object.keys(prev).reduce((acc, k) => {
+                      acc[k] = false;
+                      return acc;
+                    }, {});
+                    newState[key] = !prev[key];
+                    return newState;
+                  });
+                  handleServiceChange(key);
                 }}
                 className={`w-full flex items-center justify-between p-4 rounded-lg text-left transition-all drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-gradient-to-r from-[#ABFA50] to-[#32EAD0] rounded`}
               >

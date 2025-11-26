@@ -1,6 +1,10 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Blog from "./components/blog";
+// import BlogDetail from "./components/blogDetail";
+
 import Header from "./components/header";
 import Footer from "./components/footer";
 import SocialMedia from "./components/socialMedia";
@@ -13,6 +17,7 @@ import Products from "./components/products";
 
 import "./App.css";
 import DynamicServicePage from "./components/DynamicServicePage";
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -42,6 +47,10 @@ function App() {
             />
             <Route path="/values" element={<OurValues />} />
           </Routes>
+          {/* <Routes>
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
+          </Routes> */}
         </div>
         <SocialMedia></SocialMedia>
         <Footer></Footer>
