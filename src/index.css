@@ -11,3 +11,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.card-hover-gradient {
+  background: white;
+  background-size: 200% 200%;
+  transition: background-position 1.5s ease-in-out, color 1s;
+}
+
+.card-hover-gradient:hover {
+  background-image: linear-gradient(to bottom, #24baac, #90eb61);
+  background-position: 0 100%;
+  color: white;
+}

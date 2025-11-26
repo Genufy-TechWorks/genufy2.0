@@ -72,7 +72,7 @@ const Products = () => {
                     src={product.path}
                     alt={product.name}
                     className={`object-contain rounded-[20px] ${product.name === "Expense Manager"
-                        ? "w-[80px] h-[70px] md:w-[95px] md:h-[95px] border-5 border-[#0D0D40]-500"
+                        ? "w-[80px] h-[70px] md:w-[95px] md:h-[95px] border-5 border-[#0D0C41]-500"
                         : "w-[100px] h-[70px] md:w-[100px] md:h-[100px]"
                       }`}
                   />
