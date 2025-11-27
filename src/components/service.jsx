@@ -9,6 +9,7 @@ import informaticaImg from "../assets/img/informatica.png";
 import snowflakeImg from "../assets/img/snowflakeimg.svg";
 import aiImg from "../assets/img/aiimg.jpg";
 import pegaImg from "../assets/img/pegaimg3.png";
+import snowflakeImg from "../assets/img/snowflakeimg.svg";
 import { Link } from "react-router-dom";
 
 export default function ServicesPage() {
@@ -23,21 +24,28 @@ export default function ServicesPage() {
     {
       title: "Salesforce",
       subtitle:
-      "We deliver Salesforce CRM solutions streamlining operations and enhancing experiences. We offer multi-cloud setups, automation, and integrations across Salesforce clouds...",
+        "We deliver Salesforce CRM solutions streamlining operations and enhancing experiences. We offer multi-cloud setups, automation, and integrations across Salesforce clouds...",
       route: "salesforce",
       img: salesforceImg,
     },
     {
       title: "Informatica",
       subtitle:
-        "We deliver enterprise-grade data integration and cloud modernization using IICS securely. We build real-time pipelines and automate metadata ensuring quality, compliance...",  
-        route: "informatica",
+        "We deliver enterprise-grade data integration and cloud modernization using IICS securely. We build real-time pipelines and automate metadata ensuring quality, compliance...",
+      route: "informatica",
       img: informaticaImg,
+    },
+    {
+      title: "Snowflake",
+      subtitle:
+        "We help you leverage Snowflake's Data Cloud to unite your siloed data, discover and securely share data, and execute diverse analytic workloads...",
+      route: "snowflake",
+      img: snowflakeImg,
     },
     {
       title: "Web development",
       subtitle:
-       "We engineer modern web applications using scalable secure high-performance technologies. Our solutions include portals, SaaS, eCommerce platforms with responsive design...", 
+        "We engineer modern web applications using scalable secure high-performance technologies. Our solutions include portals, SaaS, eCommerce platforms with responsive design...",
       route: "webdevelopment",
       img: webdevelopImg,
     },
@@ -147,7 +155,7 @@ export default function ServicesPage() {
             {serviceCards.map((card, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white border border-gray-100 rounded-2xl
+                className=" group flex flex-col bg-white border border-gray-100 rounded-2xl
                  shadow-[0_2px_10px_rgba(0,0,0,0.05)] 
                  hover:shadow-[0_2px_10px_rgba(0,0,0,0.12)] 
                  overflow-hidden transition-all duration-300
@@ -162,7 +170,7 @@ export default function ServicesPage() {
 
                 {/* Content */}
                 <div className="px-8 pb-6 flex flex-col gap-4">
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900 ">
                     {card.title}
                   </h3>
 
@@ -178,7 +186,8 @@ export default function ServicesPage() {
              py-4 bg-white
              bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent
              transition-all duration-300
-             hover:bg-gradient-to-r hover:from-[#30BFA4] hover:to-[#85E668] hover:text-white hover:bg-clip-border hover:border-transparent"
+             group-hover:bg-gradient-to-r group-hover:from-[#30BFA4] group-hover:to-[#85E668]
+  group-hover:text-white group-hover:bg-clip-border"
                 >
                   Learn Now
                 </Link>
@@ -361,7 +370,7 @@ export default function ServicesPage() {
 //          {/* Service Cards Grid */}
 //          <div className="px-4 lg:pl-10 lg:pr-10 lg:pb-15 pb-3">
 //           <div
-//             className="relative px-4 lg:px-10 mt-16 lg:mt-24 
+//             className="relative px-4 lg:px-10 mt-16 lg:mt-24
 //               grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-start"
 //           >
 //             {serviceCards.map((card, index) => {
@@ -369,9 +378,9 @@ export default function ServicesPage() {
 //               return (
 //                 <div
 //                   key={index}
-//                   className="flex flex-col bg-white border border-gray-100 rounded-2xl 
+//                   className="flex flex-col bg-white border border-gray-100 rounded-2xl
 //                     shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-//                     overflow-hidden transition-all duration-300 
+//                     overflow-hidden transition-all duration-300
 //                     hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
 //                 >
 //                   {/* Top Image */}
@@ -390,7 +399,7 @@ export default function ServicesPage() {
 //                     <p className="text-sm leading-relaxed text-gray-600">
 //                       {card.subtitle}
 //                       {!isExpanded && (
-                       
+
 //                           <button
 //                             className="text-[#30BFA4] font-medium hover:underline"
 //                             onClick={(e) => {
@@ -400,7 +409,7 @@ export default function ServicesPage() {
 //                           >
 //                             ...
 //                           </button>
-                       
+
 //                       )}
 //                     </p>
 
@@ -454,9 +463,9 @@ export default function ServicesPage() {
 //                   {/* Bottom Button */}
 //                   <Link
 //                     to={`/services/${card.route}`}
-//                     className="mt-auto w-full text-center font-semibold tracking-wide uppercase text-sm 
-//                       py-4 bg-white 
-//                       bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent 
+//                     className="mt-auto w-full text-center font-semibold tracking-wide uppercase text-sm
+//                       py-4 bg-white
+//                       bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent
 //                       transition-all duration-300
 //                       hover:bg-gradient-to-r hover:from-[#30BFA4] hover:to-[#85E668] hover:text-white hover:bg-clip-border hover:border-transparent"
 //                   >
@@ -656,16 +665,16 @@ export default function ServicesPage() {
 //           {/* Service Cards Grid */}
 //           <div className="px-4 lg:pl-10 lg:pr-10 lg:pb-15 pb-3">
 //             <div
-//               className="relative px-4 lg:px-10 mt-16 lg:mt-24 
+//               className="relative px-4 lg:px-10 mt-16 lg:mt-24
 //               grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
 //             >
 //               {serviceCards.map((card, index) => {
 //                 return (
 //                   <div
 //                     key={index}
-//                     className="flex flex-col bg-white border border-gray-100 rounded-2xl 
+//                     className="flex flex-col bg-white border border-gray-100 rounded-2xl
 //                     shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-//                     overflow-hidden transition-all duration-300 
+//                     overflow-hidden transition-all duration-300
 //                     hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
 //                     // optional: keep min height so all cards look even (remove/adjust if undesired)
 //                     style={{ minHeight: 420 }}
@@ -701,9 +710,9 @@ export default function ServicesPage() {
 //                     {/* Bottom Button */}
 //                     <Link
 //                       to={`/services/${card.route}`}
-//                       className="mt-auto w-full text-center font-semibold tracking-wide uppercase text-sm 
-//                       py-4 bg-white 
-//                       bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent 
+//                       className="mt-auto w-full text-center font-semibold tracking-wide uppercase text-sm
+//                       py-4 bg-white
+//                       bg-gradient-to-r from-[#30BFA4] to-[#85E668] bg-clip-text text-transparent
 //                       transition-all duration-300
 //                       hover:bg-gradient-to-r hover:from-[#30BFA4] hover:to-[#85E668] hover:text-white hover:bg-clip-border hover:border-transparent"
 //                     >

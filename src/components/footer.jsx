@@ -238,6 +238,7 @@ export default function Footer() {
     { name: "AI Solutions", url: "/services/aisolutions" },
     { name: "Web Development", url: "/services/webdevelopment" },
     { name: "Mobile App Development", url: "/services/mobileappdevelopment" },
+    { name: "Snowflake", url: "/services/snowflake" },
     { name: "Pega", url: "/services/pega" },
     { name: "Snowflake", url: "/services/snowflake" },
   ];
@@ -249,6 +250,7 @@ export default function Footer() {
     <footer className="flex flex-col w-full">
       <div className="lg:block p-2 bg-[#0D0C41]"></div>
       {/* White section with logo */}
+      
       <div className="flex bg-white py-4 gap-4 lg:gap-6 justify-center">
       <a href="/"><img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" /></a>
               {/* SF-Logo */}

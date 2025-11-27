@@ -27,7 +27,7 @@ const AnimatedSlideshow = () => {
         "We are integrating Artificial Intelligence (AI) across our solutions to enhance efficiency, accuracy, and innovation.",
         "At Genufy Techworks, we’re committed to building intelligent systems that transform how businesses operate in the digital era.",
         "Our AI-driven models optimize business workflows and deliver real-time intelligence for smarter operations.",
-        "We use AI and automation to turn data into valuable insights",
+        "We use AI and automation to turn data into valuable insights.",
         "Our AI-powered platforms turn raw data into real-time insights for smarter, faster operations.",
       ],
       url: "/services/aisolutions",
@@ -40,11 +40,11 @@ const AnimatedSlideshow = () => {
       content: [
         "Empower your customer experience with expert Salesforce services.",
         "We help businesses maximize ROI on Salesforce through scalable, integrated, and automated solutions.",
-        "Custom development of Lightning Web Components (LWC) and Aura Components",
-        "End-to-end CRM automation using Apex, Flows, and Process Builder",
-        "Third-party API integration (REST/SOAP) for unified platforms",
+        "Custom development of Lightning Web Components (LWC) and Aura Components.",
+        "End-to-end CRM automation using Apex, Flows, and Process Builder.",
+        "Third-party API integration (REST/SOAP) for unified platforms.",
         // "Data modeling and architecture tailored to business logic",
-        "Performance tuning, security configurations, and user adoption strategies",
+        "Performance tuning, security configurations, and user adoption strategies.",
       ],
       url: "/services/salesforce",
       logo: salesforceImg,
@@ -56,14 +56,29 @@ const AnimatedSlideshow = () => {
       content: [
         "Cloud-first data integration and automation with Informatica IICS.",
         "We streamline data transfer and ETL operations with secure, efficient, and scalable workflows.",
-        "Monitor and manage all ETL workflows for continuous data sync",
-        "Automate data pipelines and trigger alerts on job failures",
-        "Secure Agent configuration for encrypted data transfers",
-        "Seamless integration across diverse data sources and targets",
-        "SQL optimization and job re-triggering for flawless data delivery",
+        "Monitor and manage all ETL workflows for continuous data sync.",
+        "Automate data pipelines and trigger alerts on job failures.",
+        "Secure Agent configuration for encrypted data transfers.",
+        "Seamless integration across diverse data sources and targets.",
+        "SQL optimization and job re-triggering for flawless data delivery.",
       ],
       url: "/services/informatica",
       logo: informaticaImg,
+    },
+    {
+      title: "Snowflake",
+      bg: pegabg,
+      titleColor: "text-blue-400",
+      content: [
+        "Leverage Snowflake's Data Cloud to unite your siloed data into a single source of truth.",
+        "Discover and securely share live data across your organization and with external partners without copying.",
+        // "Execute diverse analytic workloads including Data Warehousing, Data Lakes, and Data Science with speed and efficiency.",
+        "Ensure seamless data collaboration and governance with built-in security and compliance features.",
+        "Scale instantly and infinitely to handle any amount of data and any number of concurrent users.",
+        "Optimize costs with per-second pricing and automatic suspension of unused compute resources."
+      ],
+      url: "/services/snowflake",
+      logo: snowflakeImg,
     },
     {
       title: "Web Development",
@@ -74,10 +89,10 @@ const AnimatedSlideshow = () => {
         "SEO-optimized, scalable websites and web apps built to convert.",
         "We specialize in creating high-performance web platforms that engage users and drive measurable results.",
         "Full-stack development with modern tech (React, Node, Angular, Vue, etc.)",
-        "Custom CMS and eCommerce platforms for business flexibility",
+        "Custom CMS and eCommerce platforms for business flexibility.",
         // "Responsive web design for mobile, tablet, and desktop",
-        "SEO fundamentals baked into every build for better rankings",
-        "Lightning-fast load times and top-tier security practices",
+        "SEO fundamentals baked into every build for better rankings.",
+        "Lightning-fast load times and top-tier security practices.",
       ],
       url: "/services/webdevelopment",
       logo: webdevelopImg,
@@ -90,11 +105,11 @@ const AnimatedSlideshow = () => {
       content: [
         "Build next-gen mobile apps for iOS, Android, and beyond.",
         "From concept to launch, we create mobile experiences that your users love and your business needs.",
-        "Cross-platform and native mobile app development",
-        "UI/UX design tailored for mobile user behavior",
-        "Real-time sync, offline mode, and third-party integrations",
-        "Scalable architecture with secure backend APIs",
-        "App Store and Play Store launch support with version control",
+        "Cross-platform and native mobile app development.",
+        "UI/UX design tailored for mobile user behavior.",
+        "Real-time sync, offline mode, and third-party integrations.",
+        "Scalable architecture with secure backend APIs.",
+        "App Store and Play Store launch support with version control.",
       ],
       url: "/services/mobileappdevelopment",
       logo: mobileappImg,
@@ -106,10 +121,10 @@ const AnimatedSlideshow = () => {
       content: [
         "Empower your enterprise with intelligent automation and AI-driven decisioning through Pega.",
         "Automate, optimize, and innovate faster with Pega’s low-code intelligent automation platform.",
-        "Cross-platform and native mobile app development",
+        "Cross-platform and native mobile app development.",
         "Transform business processes with Pega’s AI-powered automation and seamless workflow orchestration.",
         "Drive smarter decisions and effortless automation with the power of Pega.",
-        "Streamline operations and elevate customer experiences using Pega’s intelligent process automation.",
+        "Pega’s intelligent automation improves operations and customer experiences."
       ],
       url: "/services/pega",
       logo: pegaImg,
@@ -186,19 +201,6 @@ const AnimatedSlideshow = () => {
     setIsPlaying((prev) => !prev);
   };
 
-  const getSlideClass = (index) => {
-    const len = slides.length;
-    let pos = index - currentSlide;
-    
-    // Adjust position for wrap-around
-    if (pos < -Math.floor(len / 2)) pos += len;
-    if (pos > Math.floor(len / 2)) pos -= len;
-
-    if (pos === 0) return "opacity-100 translate-x-0 z-10";
-    if (pos < 0) return "opacity-0 -translate-x-full z-0";
-    return "opacity-0 translate-x-full z-0";
-  };
-
   return (
     <div className="relative w-full lg:h-[675px] md:h-[800px] h-[750px] overflow-hidden">
       {/* Slides Container */}
@@ -211,23 +213,17 @@ const AnimatedSlideshow = () => {
             <div className="relative flex items-center justify-center p-3 overflow-hidden h-full">
               {/* Main slide container */}
               <div
-                className="relative rounded-2xl bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] min-h-[500px] w-full max-w-6xl mx-auto overflow-hidden"
+                className="relative  rounded-2xl bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] "
+                style={{
+                  backgroundImage: `url(${slide.bg})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
                 onMouseEnter={() => setIsPlaying(false)}
                 onMouseLeave={() => setIsPlaying(true)}
               >
-                {/* Background Image - Hidden on Mobile */}
-                <div 
-                  className="absolute inset-0 hidden lg:block"
-                  style={{
-                    backgroundImage: `url(${slide.bg})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                />
-
-                {/* Content */}
-                <div className="relative z-10 flex flex-col lg:flex-row items-center lg:justify-between h-full">
+                <div className="flex flex-col lg:flex-row items-center lg:justify-between">
                   {/* Logo placeholder on the left */}
                   <div className="lg:w-3/7 p-15 flex justify-center align-center">
                     <img
@@ -295,7 +291,7 @@ const AnimatedSlideshow = () => {
       {/* Slide indicators */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-20"
+        className="absolute left-3 top-1/3 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-0"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -307,7 +303,7 @@ const AnimatedSlideshow = () => {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-20"
+        className="absolute right-3 top-1/3 -translate-y-1/2 bg-white/70 hover:bg-white p-1 lg:p-3 rounded-full shadow-lg z-0"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

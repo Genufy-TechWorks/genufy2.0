@@ -81,7 +81,10 @@ const Header = () => {
           <nav className="hidden lg:block mt-5">
             <ul className="flex flex-row gap-10">
               {navItems.map((item, index) => (
-                <li className="nav-item flex flex-col text-xl leading-5" key={index}>
+                <li
+                  className="nav-item flex flex-col text-xl leading-5"
+                  key={index}
+                >
                   {item.url === "/#contact" ? (
                     <a
                       href="/#contact"
@@ -130,9 +133,19 @@ const Header = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>

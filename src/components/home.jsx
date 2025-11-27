@@ -108,7 +108,7 @@ const home = () => {
                 className="lg:mr-8 mr-4 w-[32px] h-[32px] lg:mr-8 lg:w-auto lg:h-auto"
               />
               <div>
-                <div className="font-bold text-3xl leading-[37px] lg:text-5xl lg:leading-[59px] mt-10 lg:mt-0">
+                <div className="font-bold text-3xl leading-[37px] lg:text-5xl lg:leading-[59px] mt-8 lg:mt-1">
                   About
                 </div>
                 <img

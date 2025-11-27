@@ -869,7 +869,7 @@ const ServicePage = () => {
           </p>
           <a
             href="#contact"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg font-semibold hover:shadow-lg transition-all lg:px-8"
           >
             Contact Our Experts
           </a>
