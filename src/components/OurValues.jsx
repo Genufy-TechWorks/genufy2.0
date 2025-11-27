@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ruralbg from "../assets/img/rural_bg.jpg";
 import ourvaluesbg from "../assets/img/ourvalues1.gif";
 import Values from "./values";
 import WhyRural from "./WhyRural";
@@ -33,7 +32,7 @@ const CompanyValues = () => {
           <h1 className="text-3xl leading-[37px] lg:text-4xl lg:text-[40px] lg:leading-[50px] font-bold lg:mb-8 mb-5">
             {herovalue.title}
           </h1>
-          <p className="lg:mt-11 lg:text-sm lg:text-xl lg:leading-[50px] text-base leading-[26px] font-medium">
+          <p className="lg:mt-11 lg:text-sm lg:text-xl lg:leading-[50px] text-sm leading-[26px] font-medium">
             {herovalue.description}
           </p>
         </div>

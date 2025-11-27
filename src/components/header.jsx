@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import sflogo from "../assets/img/SF-img.png";
@@ -16,11 +16,12 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const menuRef = useRef(null); // Reference for mobile menu
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const handleContactClick = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setIsOpen(false);
 
     if (location.pathname === "/") {
@@ -35,12 +36,44 @@ const Header = () => {
     }
   };
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // if (menuRef.current && !menuRef.current.contains(event.target)) {
+      //   setIsOpen(false);
+      // }
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        !event.target.closest("button") // prevents accidental close when clicking hamburger
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <header className="bg-white fixed top-0 left-0 right-0 z-11">
       <div className="pt-4 px-7 pb-4">
         <div className="flex justify-between items-center">
           <div className="flex gap-5 items-center">
-            <img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" />
+            <a href="/">
+              <img
+                src={logo}
+                className="w-[200px]"
+                alt="Genufy TechWorks logo"
+              />
+            </a>
             <div className="hidden lg:block">
               <img src={sflogo} className="w-[60px]" alt="SF-logo" />
             </div>
@@ -50,7 +83,10 @@ const Header = () => {
           <nav className="hidden lg:block mt-5">
             <ul className="flex flex-row gap-10">
               {navItems.map((item, index) => (
-                <li className="nav-item flex flex-col text-xl leading-5" key={index}>
+                <li
+                  className="nav-item flex flex-col text-xl leading-5"
+                  key={index}
+                >
                   {item.url === "/#contact" ? (
                     <a
                       href="/#contact"
@@ -86,7 +122,14 @@ const Header = () => {
           </nav>
 
           {/* Mobile Hamburger */}
-          <button className="lg:hidden flex items-center p-2" onClick={toggleMenu}>
+          {/* <button className="lg:hidden flex items-center p-2" onClick={toggleMenu}> */}
+          <button
+            className="lg:hidden flex items-center p-2"
+            onClick={(e) => {
+              e.stopPropagation(); // IMPORTANT FIX
+              toggleMenu();
+            }}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -95,9 +138,19 @@ const Header = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -107,13 +160,19 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden">
-          <div className="absolute w-full z-[10] bg-white px-2 pt-10 pb-5 flex flex-col items-center gap-8 shadow-[0_4px_0_0] shadow-green-300">
+          <div
+            ref={menuRef} // 👈 Reference here
+            className="absolute w-full z-[10] bg-white px-2 pt-10 pb-5 flex flex-col items-center gap-8 shadow-[0_4px_0_0] shadow-green-300"
+          >
             {navItems.map((item, index) =>
               item.url === "/#contact" ? (
                 <a
                   href="/#contact"
                   key={index}
-                  onClick={handleContactClick}
+                  onClick={() => {
+                    handleContactClick();
+                    setIsOpen(false);
+                  }}
                   className="block text-xl md:text-2xl leading-[29px] text-gray-800 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#85E669] hover:to-[#2CBDA7]"
                 >
                   {item.name}
@@ -122,10 +181,12 @@ const Header = () => {
                 <NavLink
                   to={item.url}
                   key={index}
+                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `block text-xl md:text-2xl leading-[29px] ${isActive && item.url !== "/#contact"
-                      ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
-                      : ""
+                    `block text-xl md:text-2xl leading-[29px] ${
+                      isActive && item.url !== "/#contact"
+                        ? "bg-gradient-to-r from-[#85E669] to-[#2CBDA7] bg-clip-text text-transparent"
+                        : ""
                     }`
                   }
                 >

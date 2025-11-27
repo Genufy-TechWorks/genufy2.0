@@ -21,7 +21,7 @@ const ServicePage = () => {
 
   // Service data structure
   const services = {
-    aidevelopment: {
+    aisolutions: {
       "AI-Powered Predictive Analytics": {
         title: "AI-Powered Predictive Analytics",
         icon: "📊",
@@ -630,11 +630,93 @@ const ServicePage = () => {
         ],
       },
     },
+    snowflake: {
+      "informatica-cloud-data-integration": {
+        title: "Data Warehousing",
+        icon: "☁️",
+        description:
+          "Modern Data Warehousing for All Your Data",
+        longDescription:
+          "Snowflake's Data Cloud powers a modern data warehouse that is faster, easier to use, and far more flexible than traditional data warehouse offerings. It handles all your data—structured and semi-structured—in one place.",
+        features: [
+          "Separate compute and storage for unlimited scalability",
+          "Support for structured and semi-structured data (JSON, Avro, Parquet, etc.)",
+          "Near-zero maintenance with auto-scaling and auto-suspend",
+          "Secure data sharing across regions and clouds"
+        ],
+        benefits: [
+          "Eliminate data silos with a single source of truth",
+          "Reduce costs by paying only for the storage and compute you use",
+          "Accelerate analytics with instant elasticity",
+          "Simplify data management with a fully managed service"
+        ],
+      },
+      "quality-governance": {
+        title: "Data Engineering",
+        icon: "☁️",
+        description:
+          "Simplify Data Pipelines and Transformation",
+        longDescription:
+          "Snowflake simplifies data engineering with a unified platform for data ingestion, transformation, and pipeline orchestration. Build reliable and scalable data pipelines with standard SQL and powerful features like Streams and Tasks.",
+        features: [
+          "Continuous data ingestion with Snowpipe",
+          "Native support for SQL, Python, Java, and Scala",
+          "Automated pipeline orchestration with Streams and Tasks",
+          "Zero-copy cloning for instant dev/test environments"
+        ],
+        benefits: [
+          "Reduce pipeline complexity and maintenance overhead",
+          "Accelerate data availability for downstream analytics",
+          "Improve data quality and reliability",
+          "Enable collaboration between data engineers and analysts"
+        ],
+      },
+      mdm: {
+        title: "Data Sharing & Collaboration",
+        icon: "☁️",
+        description:
+          "Securely Share Data Across Your Ecosystem",
+        longDescription:
+          "Snowflake's unique architecture enables secure, real-time data sharing without moving or copying data. Share live data with partners, customers, and other business units instantly and securely.",
+        features: [
+          "Live data sharing without ETL or file transfers",
+          "Cross-region and cross-cloud data replication",
+          "Data Marketplace to discover and monetize data",
+          "Row-level security and governance controls"
+        ],
+        benefits: [
+          "Eliminate data latency and staleness",
+          "Reduce security risks associated with data movement",
+          "Create new revenue streams with data monetization",
+          "Foster collaboration and innovation with external partners"
+        ],
+      },
+      "meta-management": {
+        title: "Data Science & ML",
+        icon: "☁️",
+        description:
+          "Accelerate Machine Learning Workflows",
+        longDescription:
+          "Snowflake provides a robust foundation for data science and machine learning. With Snowpark, data scientists can use their preferred languages and libraries to process data directly in Snowflake, ensuring performance and security.",
+        features: [
+          "Snowpark for Python, Java, and Scala integration",
+          "Integration with popular ML frameworks (TensorFlow, PyTorch, etc.)",
+          "Scalable compute for model training and inference",
+          "Streamlit integration for building interactive data apps"
+        ],
+        benefits: [
+          "Accelerate model development and deployment",
+          "Leverage the full power of Snowflake's performance for ML workloads",
+          "Ensure data security and governance throughout the ML lifecycle",
+          "Democratize data insights with custom applications"
+        ],
+      },
+    },
   };
 
   const [uiName, setuiName] = useState({
-    aidevelopment: {
-      title: "AI Development",
+    aisolutions: {
+      title: "AI Solutions",
       description:
         "At Genufy, we deliver cutting-edge AI development services that transform your business operations, optimize decision-making, and enhance customer experiences. From machine learning models to advanced data analytics, we design intelligent solutions that drive innovation and foster sustainable growth. Whether you're looking to integrate AI into existing systems or develop custom AI-driven applications, our team tailors every solution to meet your unique business needs.",
     },
@@ -662,6 +744,11 @@ const ServicePage = () => {
       title: "Pega",
       description:
         "At Genufy, we specialize in delivering Pega-based solutions that streamline processes, improve operational efficiency, and elevate customer engagement. From implementing Pega BPM and CRM platforms to developing sophisticated multi-channel applications, we create customized solutions that support your enterprise's digital transformation. Our expert team designs and integrates Pega systems that accelerate business outcomes and provide a scalable framework for future growth.",
+    },
+    snowflake: {
+      title: "Snowflake",
+      description:
+        "Genufy helps you unlock the full potential of the Snowflake Data Cloud. We provide end-to-end Snowflake services, from migration and implementation to data engineering and analytics. Our experts help you build a scalable, secure, and cost-effective data foundation that drives business value.",
     },
   });
 
@@ -786,7 +873,7 @@ const ServicePage = () => {
           </p>
           <a
             href="#contact"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-lg font-semibold hover:shadow-lg transition-all lg:px-8"
           >
             Contact Our Experts
           </a>
@@ -845,21 +932,34 @@ const ServicePage = () => {
           {Object.entries(service).map(([key, svc]) => (
             <div key={key} className="mb-4">
               <button
-                onClick={() => {
-                  if (subService && subService.title === svc.title) {
-                    console.log(expandedServices);
-                    // Toggle only this service's visibility
-                    setExpandedServices((prev) => ({
-                      ...prev,
-                      [key]: !prev[key],
-                    }));
-                  } else {
-                    setExpandedServices((prev) => ({
-                      ...prev,
-                      [key]: !prev[key],
-                    }));
-                    handleServiceChange(key);
-                  }
+                // onClick={(e) => {
+                //   if (subService && subService.title === svc.title) {
+                //     console.log(expandedServices);
+                //     // Toggle only this service's visibility
+                //     setExpandedServices((prev) => ({
+                //       ...prev,
+                //       [key]: !prev[key],
+                //     }));
+                //   } else {
+                //     setExpandedServices((prev) => ({
+                //       ...prev,
+                //       [key]: !prev[key],
+                //     }));
+                //     handleServiceChange(key);
+                //   }
+                // }}
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent triggering outside click
+                  setExpandedServices((prev) => {
+                    // Close all, then toggle only the clicked one
+                    const newState = Object.keys(prev).reduce((acc, k) => {
+                      acc[k] = false;
+                      return acc;
+                    }, {});
+                    newState[key] = !prev[key];
+                    return newState;
+                  });
+                  handleServiceChange(key);
                 }}
                 className={`w-full flex items-center justify-between p-4 rounded-lg text-left transition-all drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-gradient-to-r from-[#ABFA50] to-[#32EAD0] rounded`}
               >

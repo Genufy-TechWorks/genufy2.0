@@ -31,7 +31,7 @@ const mediaList = [
 
 const socialMedia = () => {
   return (
-    <div className="smedia-wrpr fixed flex flex-col gap-4 top-80 right-5 lg:right-10 z-11">
+    <div className="smedia-wrpr fixed flex flex-col gap-4 top-60 right-5 lg:right-10 z-11">
       {mediaList.map((item, index) => (
         <a href={item.url} key={index}>
           <div className={`${item.name === "twitter" ? "pl-1 md:pl-0" : ""}`}>
