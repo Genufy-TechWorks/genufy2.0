@@ -14,7 +14,6 @@ import aibg from "../assets/img/carouselbg.png";
 import webbg from "../assets/img/carouselbg.png";
 import mobbg from "../assets/img/carouselbg.png";
 import pegabg from "../assets/img/carouselbg.png";
-import snowbg from "../assets/img/carouselbg.png";
 
 const AnimatedSlideshow = () => {
   const slides = [
@@ -129,21 +128,6 @@ const AnimatedSlideshow = () => {
       url: "/services/pega",
       logo: pegaImg,
     },
-    {
-      title: "Snowflake",
-      bg: snowbg,
-      titleColor: "text-blue-500",
-      content: [
-        "Leverage Snowflake's Data Cloud to unite your siloed data into a single source of truth.",
-        "Discover and securely share live data across your organization and with external partners without copying.",
-        "Execute diverse analytic workloads including Data Warehousing, Data Lakes, and Data Science with speed and efficiency.",
-        "Ensure seamless data collaboration and governance with built-in security and compliance features.",
-        "Scale instantly and infinitely to handle any amount of data and any number of concurrent users.",
-        "Optimize costs with per-second pricing and automatic suspension of unused compute resources.",
-      ],
-      url: "/services/snowflake",
-      logo: snowflakeImg,
-    },
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -202,15 +186,26 @@ const AnimatedSlideshow = () => {
   };
 
   return (
-    <div className="relative w-full lg:h-[675px] md:h-[800px] h-[750px] overflow-hidden">
+    <div className="relative w-full lg:h-[675px] md:h-[800px] h-[1000px] overflow-hidden">
       {/* Slides Container */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
+          // <div
+          //   key={index}
+          //   className={`absolute inset-0 transition-all duration-700 ease-in-out 
+          //     ${getSlideClass(index)}`}
+          // >
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-700 ease-in-out ${getSlideClass(index)}`}
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+              index === currentSlide
+                ? "opacity-100 translate-x-0"
+                : index < currentSlide
+                ? "opacity-0 -translate-x-full"
+                : "opacity-0 translate-x-full"
+            }`}
           >
-            <div className="relative flex items-center justify-center p-3 overflow-hidden h-full">
+            <div className="relative flex items-center justify-center p-3 overflow-hidden">
               {/* Main slide container */}
               <div
                 className="relative  rounded-2xl bg-white shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)] "
