@@ -17,8 +17,12 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const menuRef = useRef(null); // Reference for mobile menu
+  const buttonRef = useRef(null); // Reference for hamburger button
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
+  }
 
   const handleContactClick = (e) => {
     if (e) e.preventDefault();
@@ -39,13 +43,11 @@ const Header = () => {
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // if (menuRef.current && !menuRef.current.contains(event.target)) {
-      //   setIsOpen(false);
-      // }
       if (
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
-        !event.target.closest("button") // prevents accidental close when clicking hamburger
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
       ) {
         setIsOpen(false);
       }
@@ -65,14 +67,10 @@ const Header = () => {
   return (
     <header className="bg-white fixed top-0 left-0 right-0 z-11">
       <div className="pt-4 px-7 pb-4">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center relative z-50">
           <div className="flex gap-5 items-center">
             <a href="/">
-              <img
-                src={logo}
-                className="w-[200px]"
-                alt="Genufy TechWorks logo"
-              />
+              <img src={logo} className="w-[200px]" alt="Genufy TechWorks logo" />
             </a>
             <div className="hidden lg:block">
               <img src={sflogo} className="w-[60px]" alt="SF-logo" />
@@ -122,13 +120,10 @@ const Header = () => {
           </nav>
 
           {/* Mobile Hamburger */}
-          {/* <button className="lg:hidden flex items-center p-2" onClick={toggleMenu}> */}
           <button
+            ref={buttonRef}
             className="lg:hidden flex items-center p-2"
-            onClick={(e) => {
-              e.stopPropagation(); // IMPORTANT FIX
-              toggleMenu();
-            }}
+            onClick={() => setIsOpen(!isOpen)}
           >
             <svg
               className="w-6 h-6"
@@ -171,7 +166,7 @@ const Header = () => {
                   key={index}
                   onClick={() => {
                     handleContactClick();
-                    setIsOpen(false);
+                    // setIsOpen(false);
                   }}
                   className="block text-xl md:text-2xl leading-[29px] text-gray-800 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#85E669] hover:to-[#2CBDA7]"
                 >

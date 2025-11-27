@@ -6,6 +6,7 @@ import salesforceImg from "../assets/img/salesforce.png";
 import mobileappImg from "../assets/img/mobile_app.webp";
 import webdevelopImg from "../assets/img/web_development.png";
 import informaticaImg from "../assets/img/informatica.png";
+import snowflakeImg from "../assets/img/snowflakeimg.svg";
 import aiImg from "../assets/img/aiimg.jpg";
 import pegaImg from "../assets/img/pegaimg3.png";
 import snowflakeImg from "../assets/img/snowflakeimg.svg";
@@ -61,6 +62,13 @@ export default function ServicesPage() {
         "We deliver Pega automation and CRM solutions that improve workflows. Our Pega platforms streamline operations, automate workflows, driving scalable growth...",
       route: "pega",
       img: pegaImg,
+    },
+    {
+      title: "Snowflake",
+      subtitle:
+        "We help you leverage Snowflake's Data Cloud to unite your siloed data, discover and securely share data, and execute diverse analytic workloads...",
+      route: "snowflake",
+      img: snowflakeImg, // Placeholder image
     },
   ];
 
